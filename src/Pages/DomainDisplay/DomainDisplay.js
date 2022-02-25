@@ -1,11 +1,14 @@
-import {View, Text} from 'react-native';
+import {FlatList, SafeAreaView, Text} from 'react-native';
 import React from 'react';
+import database from '@react-native-firebase/database';
+import DomainCard from '../../Components/DomainCard';
 
-const DomainDisplay = () => {
+const DomainDisplay = domainList => {
+  const renderDomain = ({item}) => <DomainCard domain={item} />;
   return (
-    <View>
-      <Text>DomainDisplay</Text>
-    </View>
+    <SafeAreaView>
+      <FlatList data={domainList} renderItem={renderDomain} />
+    </SafeAreaView>
   );
 };
 
