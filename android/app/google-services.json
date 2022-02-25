@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283663292651",
+    "project_id": "domainreminderapp",
+    "storage_bucket": "domainreminderapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283663292651:android:ea7c4147df9f71a42406ae",
+        "android_client_info": {
+          "package_name": "com.domainreminderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283663292651-ruigceo9vah9m4di11v3dc49bvg7sas8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-Yyznfdyb8YpZHZ3nFG8SBFaGVkf7HTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283663292651-ruigceo9vah9m4di11v3dc49bvg7sas8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
