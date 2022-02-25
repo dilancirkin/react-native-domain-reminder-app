@@ -10,8 +10,16 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name={routes.LOGIN} component={Login} />
-        <Stack.Screen name={routes.HOMEPAGE_STACK} component={HomePageStack} />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name={routes.LOGIN}
+          component={Login}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name={routes.HOMEPAGE_STACK}
+          component={HomePageStack}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
