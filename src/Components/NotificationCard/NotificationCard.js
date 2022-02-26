@@ -18,15 +18,17 @@ const NotificationCard = ({domain}) => {
   }
   return (
     <View>
-      <View style={styles.container}>
-        <View style={styles.innerContainer}>
-          <View style={styles.container}>
-            <Text style={styles.user}>{getDateRange(calculateDays())}</Text>
+      {!!getDateRange(calculateDays()) && (
+        <View style={styles.container}>
+          <View style={styles.innerContainer}>
+            <View style={styles.container}>
+              <Text style={styles.user}>{getDateRange(calculateDays())}</Text>
+            </View>
+            <Text style={styles.date}>The end date is approaching!</Text>
           </View>
-          <Text style={styles.date}>The end date is approaching!</Text>
+          <View style={styles.footer}></View>
         </View>
-        <View style={styles.footer}></View>
-      </View>
+      )}
     </View>
   );
 };
