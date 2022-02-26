@@ -40,12 +40,15 @@ const HomePage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Icon
-        style={styles.logoutIcon}
-        name="logout"
-        size={35}
-        onPress={() => singOut()}
-      />
+      <View style={styles.iconContainer}>
+        <Icon
+          style={styles.logoutIcon}
+          name="logout"
+          size={35}
+          onPress={() => singOut()}
+        />
+      </View>
+
       <FlatList data={notificationList} renderItem={renderDomain} />
       <View style={styles.inner_container}>
         <Button theme="circle" label="Add Domain" onPress={handleDomainAdd} />
