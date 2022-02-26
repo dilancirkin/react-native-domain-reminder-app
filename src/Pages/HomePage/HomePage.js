@@ -35,7 +35,9 @@ const HomePage = () => {
     await AsyncStorage.clear();
     navigation.navigate(routes.LOGIN);
   };
+
   const renderDomain = ({item}) => <NotificationCard domain={item} />;
+
   return (
     <SafeAreaView style={styles.container}>
       <Icon

@@ -28,7 +28,6 @@ const DomainCard = ({domain}) => {
   const calculateDays = () => {
     let currentDate = new Date();
     let finishDate = new Date(domain.date);
-    console.log('1.' + finishDate);
     const diffInTime = finishDate.getTime() - currentDate.getTime();
     let days = Math.floor(diffInTime / 1000 / 60 / 60 / 24);
     console.log('3.' + days);
@@ -36,7 +35,6 @@ const DomainCard = ({domain}) => {
   };
 
   function getDateRange(d) {
-    console.log(d);
     if (d == 11) {
       return 1;
     } else if (60 > d >= 15) {

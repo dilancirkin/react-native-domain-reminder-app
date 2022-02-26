@@ -1,5 +1,5 @@
 import {SafeAreaView, TouchableOpacity, View, Text} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 import database from '@react-native-firebase/database';
@@ -13,7 +13,6 @@ const DomainAdd = () => {
   const [domainName, setDomainName] = useState();
   const [domainProvider, setDomainProvider] = useState();
   const [text, setText] = useState();
-
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
 
@@ -27,21 +26,6 @@ const DomainAdd = () => {
     };
     database().ref('domains/').push(objDomain);
   }
-  // const onChange = (event, selectedDate) => {
-  //   const currentDate = selectedDate || date;
-  //   setShow(Platform.OS === 'android');
-  //   setDate(currentDate);
-
-  //   setText(currentDate);
-  // };
-
-  // const showMode = currentMode => {
-  //   setShow(true);
-  //   setMode(currentMode);
-  // };
-  // const showDatepicker = () => {
-  //   showMode('date');
-  // };
   return (
     <SafeAreaView>
       <Input
@@ -56,7 +40,7 @@ const DomainAdd = () => {
             <Text></Text>
           </View>
           <TouchableOpacity onPress={() => setOpen(true)}>
-            <Icon name="calendar" size={35} />
+            <Icon name="calendar" color="black" size={35} />
           </TouchableOpacity>
         </View>
         <DatePicker
@@ -73,16 +57,6 @@ const DomainAdd = () => {
             setOpen(false);
           }}
         />
-        {/* {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            display="default"
-            onChange={onChange}
-          />
-        )} */}
       </View>
       <Input
         label="Domain Provider"
