@@ -8,5 +8,5 @@ export default {
   bigger: 25,
   grand: 30,
   giant: 40,
-  description_spacing: 90,
+  description_spacing: 60,
 };

@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import colors from '../../styles/colors';
 
 export default StyleSheet.create({
+  red: {color: 'red'},
+  orange: {color: 'orange'},
+  green: {color: 'green'},
+  white: {color: 'white'},
   container: {
     margin: 10,
     backgroundColor: '#EAB464',
@@ -16,7 +20,15 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     borderBottomColor: colors.primary,
     borderBottomWidth: 1,
-
+    paddingBottom: 5,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+  },
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingBottom: 5,
   },
   user: {

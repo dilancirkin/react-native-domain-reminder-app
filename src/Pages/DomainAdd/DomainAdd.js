@@ -1,34 +1,47 @@
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, TouchableOpacity, View, Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 import database from '@react-native-firebase/database';
-import parseDomainData from '../../utils/parseDomainData';
+import uuid from 'react-native-uuid';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import DatePicker from 'react-native-date-picker';
+
+import styles from './DomainAdd.styles';
+
 const DomainAdd = () => {
   const [domainName, setDomainName] = useState();
-  const [endDate, setEndDate] = useState();
   const [domainProvider, setDomainProvider] = useState();
-  const [domainList, setDomainList] = useState([]);
+  const [text, setText] = useState();
 
-  useEffect(() => {
-    database()
-      .ref('domains/')
-      .on('value', snapshot => {
-        const domainData = snapshot.val();
-        const parseData = parseDomainData(domainData);
-        setDomainList(parseData);
-      });
-  });
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
   function handleSend() {
+    console.log('text' + text);
     const objDomain = {
+      id: uuid.v4(),
       domainName: domainName,
-      endDate: endDate,
+      date: text,
       domainProvider: domainProvider,
     };
     database().ref('domains/').push(objDomain);
   }
+  // const onChange = (event, selectedDate) => {
+  //   const currentDate = selectedDate || date;
+  //   setShow(Platform.OS === 'android');
+  //   setDate(currentDate);
 
+  //   setText(currentDate);
+  // };
+
+  // const showMode = currentMode => {
+  //   setShow(true);
+  //   setMode(currentMode);
+  // };
+  // const showDatepicker = () => {
+  //   showMode('date');
+  // };
   return (
     <SafeAreaView>
       <Input
@@ -36,7 +49,41 @@ const DomainAdd = () => {
         autoCapitalize="none"
         onChangeText={text => setDomainName(text)}
       />
-      <Input label="End Date" onChangeText={text => setEndDate(text)} />
+      <View style={styles.container}>
+        <Text style={styles.label}>End Date</Text>
+        <View style={styles.innerContainer}>
+          <View style={styles.datePickerContainer}>
+            <Text></Text>
+          </View>
+          <TouchableOpacity onPress={() => setOpen(true)}>
+            <Icon name="calendar" size={35} />
+          </TouchableOpacity>
+        </View>
+        <DatePicker
+          modal
+          open={open}
+          date={date}
+          onConfirm={date => {
+            setOpen(false);
+            setDate(date);
+            setText(new Date(date).toString());
+            console.log(new Date(date));
+          }}
+          onCancel={() => {
+            setOpen(false);
+          }}
+        />
+        {/* {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+          />
+        )} */}
+      </View>
       <Input
         label="Domain Provider"
         onChangeText={text => setDomainProvider(text)}
