@@ -14,8 +14,6 @@ const NotificationCard = ({domain}) => {
   function getDateRange(d) {
     if (15 > d) {
       return domain.domainName;
-    } else {
-      return null;
     }
   }
   return (
